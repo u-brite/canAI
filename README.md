@@ -11,7 +11,7 @@
         - [Requirements](#requirements) _Can be named Dependencies as well_
         - [Activate conda environment](#activate-conda-environment) _Optional_
         - [Steps to run ](#steps-to-run) _Optional depending on project_
-            - [Step-1](#step-1)
+            - [Pre-processing](#pre-processing)
             - [Step-2](#step-2)
     - [Results](#results) _Optional depending on project_
     - [Team Members](#team-members)
@@ -74,7 +74,7 @@ conda activate canAI
 
 ### Steps to run
 
-#### Step 1
+#### Pre-processing
 
 ```sh
 python src/data_prep.py -i path/to/file.tsv -O path/to/output_directory
