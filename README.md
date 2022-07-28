@@ -46,7 +46,6 @@ git clone -b main \
 ```
 
 ### Requirements
-:exclamation: _Note any software used (including Python or R packages), operating system requirements, etc. and its version so that your project is reproducible. It does not have to be in the below format_ :exclamation:
 
 *OS:*
 
@@ -74,7 +73,6 @@ conda activate canAI
 ```
 
 ### Steps to run
-:exclamation: _Optional: Depends on project._ :exclamation:
 
 #### Step 1
 
@@ -102,7 +100,7 @@ output_directory/
 
 
 ## Results
-:exclamation: _If your project yielded or intends to yield some novel analysis, please include them in your readme. It can be named something other than results as well._ :exclamation:
+
 
 ## Team Members
 
