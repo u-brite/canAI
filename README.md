@@ -1,12 +1,10 @@
-# team-repo-template
-:exclamation: _This top heading should be the name of your project i.e. BiocSwirl or SNVariome. Anything between 2 exclamation marks is intended to be deleted. Any content that isn't a heading or an optional heading can be deleted as well. The structure of this readme is open to any creative changes, but the main components of Background/Data/Usage/Team Members should remain. You're free to add images and get creative about how you want your readme to look._ :exclamation:
-
-:exclamation: _The `configs` and `notebooks` directories are also optional. We recommend taking a look at [cookiecutter for datascience](https://github.com/drivendata/cookiecutter-data-science) or [cookiecutter for computational biology](https://github.com/drivendata/cookiecutter-data-science) to get ideas on structuring your projects. Also, use a `.gitignore` that fits the main programming language of your project._ :exclamation:
+# canAI
 
 ## Table of Contents
 
-- [Template](#team-repo-template)
-    - [Background](#Background)
+- [canAI](#canai)
+    - [Aim](#aim)
+    - [Description](#description)
     - [Data](#data)
     - [Usage](#usage)
         - [Installation](#installation)
@@ -18,21 +16,23 @@
     - [Results](#results) _Optional depending on project_
     - [Team Members](#team-members)
 
-## Background
+## Aim
 
-:exclamation: _Include background on the project, project description, and significance. This will be converted to your team's abstract by the end of the hackathon. This should be updated by Monday, August 1st to include feedback given._ :exclamation:
+Comparing feature extraction methods for biomarker discovery in a pan-cancer study.
+
+## Description
+
+A web app where you can select cancer(s) multiomics data pulled from TCGA and compare different feature extraction methods to identify biomarkers. Users are able to select >=1 type(s) of cancers and get markers depending on the chosen feature extraction method.
 
 ## Data
 
-:exclamation: _Discuss the data you used and how it can be accessed._ :exclamation:
+We will be using Gene Expression and Methylation data from TCGA GDC database.
 
 ## Usage
 
-:exclamation: _How will someone not involved in your project be able to run the code or use it._ :exclamation:
+canAI can be access at this streamlit site.
 
 ### Installation
-
-:exclamation: _If installation is required, please mention how to do so here._ :exclamation:
 
 Installation simply requires fetching the source code. Following are required:
 
@@ -50,7 +50,7 @@ git clone -b main \
 
 *OS:*
 
-Currently works only in Linux OS. Docker versions may need to be explored later to make it useable in Mac (and
+Currently works only in Mac OS. Docker versions may need to be explored later to make it useable in Mac (and
 potentially Windows).
 
 *Tools:*
@@ -59,7 +59,6 @@ potentially Windows).
     - Tested with version: 2020.02
 
 ### Activate conda environment
-:exclamation: _Optional: Depends on project._ :exclamation:
 
 Change in to root directory and run the commands below:
 
@@ -71,7 +70,7 @@ conda env create --file configs/environment.yaml
 conda env update --file configs/environment.yaml
 
 # activate conda environment
-conda activate testing
+conda activate canAI
 ```
 
 ### Steps to run
@@ -107,5 +106,5 @@ output_directory/
 
 ## Team Members
 
-Tarun Mamidi | tmamidi@uab.edu | Team Leader  
-Shaurita Hutchins | shutchins@uab.edu | Co-leader
+Tarun Mamidi | tmamidi@uab.edu | Team Leader
+
