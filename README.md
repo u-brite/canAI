@@ -26,11 +26,11 @@ A web app where you can select cancer(s) multiomics data pulled from TCGA and co
 
 ## Data
 
-We will be using Gene Expression and Methylation data from TCGA GDC database.
+We will be using Gene Expression from recount3 and Methylation data from TCGA GDC database.
 
 ## Usage
 
-canAI can be access at this streamlit site.
+canAI can be accessed at this streamlit site.
 
 ### Installation
 
@@ -86,23 +86,17 @@ python src/data_prep.py -i path/to/file.tsv -O path/to/output_directory
 python src/model.py -i path/to/parsed_file.tsv -O path/to/output_directory
 ```
 
-Output from this step includes -
-
-```directory
-output_directory/
-├── parsed_file.tsv               <--- used for model
-├── plot.pdf- Plot to visualize data
-└── columns.csv - columns before and after filtering step
-
-```
-
-**Note**: The is an example note with a [link](https://github.com/u-brite/team-repo-template).
-
-
 ## Results
 
 
 ## Team Members
 
 Tarun Mamidi | tmamidi@uab.edu | Team Leader
-
+Kuanjui Su |	ksu2@tulane.edu | Team Member
+Jędrzej Kubica |	jj.kubica@student.uw.edu.pl | Team Member
+Mohit Bansal |	mbansal@uabmc.edu | Team Member
+Sarmad Mehmood |	smehmood@uab.edu | Team Member
+Santhosh Kumar Karthikeyan | skk0811@uab.edu | Team Member
+Shannon Lynch |	slynch97@uab.edu | Team Member
+Sylvia Robertson |	sylrober@iupui.edu | Team Member
+Kevin Buckley |	kevin.buckley@atriumhealth.org | Team Member
