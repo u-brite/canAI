@@ -92,11 +92,19 @@ python src/model.py -i path/to/parsed_file.tsv -O path/to/output_directory
 ## Team Members
 
 Tarun Mamidi | tmamidi@uab.edu | Team Leader
+
 Kuanjui Su |	ksu2@tulane.edu | Team Member
+
 Jędrzej Kubica |	jj.kubica@student.uw.edu.pl | Team Member
+
 Mohit Bansal |	mbansal@uabmc.edu | Team Member
+
 Sarmad Mehmood |	smehmood@uab.edu | Team Member
+
 Santhosh Kumar Karthikeyan | skk0811@uab.edu | Team Member
+
 Shannon Lynch |	slynch97@uab.edu | Team Member
+
 Sylvia Robertson |	sylrober@iupui.edu | Team Member
+
 Kevin Buckley |	kevin.buckley@atriumhealth.org | Team Member
