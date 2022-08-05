@@ -61,6 +61,7 @@ st.download_button(label='Save dataframe', data=convert_df(df), file_name='df.cs
 
 st.write(df['vital_status'].value_counts())
 
+
 # plt.plot(df.groupby('').count(), df['vital_status'])
 # st.pyplot()
 
