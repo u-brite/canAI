@@ -43,11 +43,12 @@ column = st.sidebar.selectbox('Select column to display', df.columns, index=0)
 
 unique_values = df[column].unique()
 
-# df['class'] = 0
+df['class'] = 0
 
 c1 = st.sidebar.multiselect('Class A', unique_values)
-# df[df[column].isin(c1)]['class'] = 1
+df['class'] = np.where(df[column].isin(c1), 1, df['class'])
 c2 = st.sidebar.multiselect('Class B', unique_values)
+df['class'] = np.where(df[column].isin(c2), 2, df['class'])
 
 min_age = int(df['age_at_index'].min())
 max_age = int(df['age_at_index'].max())
