@@ -13,12 +13,15 @@ def load_file(file_name):
 
 df = load_file('Prostate.csv')
 
-column = st.selectbox('Select column to display', df.columns, index=0)
+column = st.sidebar.selectbox('Select column to display', df.columns, index=0)
 
 unique_values = df[column].unique()
 
-c1 = st.selectbox('Class A', unique_values, index=0)
-c2 = st.selectbox('Class B', unique_values, index=0)
+# c1 = st.sidebar.selectbox('Class A', unique_values, index=0)
+# c2 = st.sidebar.selectbox('Class B', unique_values, index=0)
+
+c1 = st.sidebar.multiselect('Class A', unique_values)
+c2 = st.sidebar.multiselect('Class B', unique_values)
 
 # col1, col2 = st.columns(2)
 
@@ -42,7 +45,7 @@ c2 = st.selectbox('Class B', unique_values, index=0)
 # df.hist()
 # st.pyplot()
 
-st.bar_chart(df[c1])
+# st.bar_chart(df[c1])
 # agree = st.button('Click to see treatment types')
 # if agree:
 #  st.bar_chart(df[c1])
