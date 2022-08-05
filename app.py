@@ -23,11 +23,18 @@ with col2:
     age_at_index = df['age_at_index'].unique().tolist()
     column = st.selectbox('Age', age_at_index, index=0)
 
-st.markdown('Data')
+st.header('Data Summary')
+
+st.markdown('Number of Cases:', len(df.index))
 
 if st.checkbox('Show Raw Data'):
     st.subheader('Raw Data')
     st.write(df)
 
+st.set_option('deprecation.showPyplotGlobalUse', False)
 df.hist()
 st.pyplot()
+
+agree = st.button('Click to see treatment types')
+if agree:
+ st.bar_chart(df['treatment_type'])
