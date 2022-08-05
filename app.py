@@ -1,7 +1,7 @@
 import pandas as pd
 import streamlit as st
 import numpy as np
-import matplotlib.pyplot as plt
+import plotly.express as px
 
 st.sidebar.title('canAI')
 st.sidebar.markdown('Comparing feature extraction methods for biomarker discovery in a pan-cancer study')
@@ -10,6 +10,10 @@ st.sidebar.markdown('U-BRITE Hackin\' Omics 2022 Project')
 @st.cache
 def load_file(file_name):
     return pd.read_csv(file_name)
+
+@st.cache
+def convert_df(df):
+    return df.to_csv().encode('utf-8')
 
 df = load_file('Prostate.csv')
 
@@ -39,14 +43,29 @@ column = st.sidebar.selectbox('Select column to display', df.columns, index=0)
 
 unique_values = df[column].unique()
 
-c1 = st.sidebar.selectbox('Class A', unique_values, index=0)
-c2 = st.sidebar.selectbox('Class B', unique_values, index=0)
+# df['class'] = 0
 
-st.write(c1)
-st.write(df[df[column] == c1])
+c1 = st.sidebar.multiselect('Class A', unique_values)
+# df[df[column].isin(c1)]['class'] = 0
+c2 = st.sidebar.multiselect('Class B', unique_values)
+# df[df[column].isin(c2)]['class'] = 1 
 
-st.write(c2)
-st.write(df[df[column] == c2])
+st.markdown(c1)
+agree = st.button('Click to see raw data for Class A')
+if agree:
+  st.dataframe(df[df[column].isin(c1)])
+
+st.markdown(c2)
+agree = st.button('Click to see raw data for Class B')
+if agree:
+  st.dataframe(df[df[column].isin(c2)])
+
+st.dataframe(df)
+
+st.download_button(label='Save dataframe', data=convert_df(df), file_name='df.csv')
+
+# fig = px.pie(df, values=[len(df_c1.index), len(df_c2.index)], names=[c1, c2])
+# st.plotly_chart(fig, use_container_width=True)
 
 # st.set_option('deprecation.showPyplotGlobalUse', False)
 # df[c1].hist()
