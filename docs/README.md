@@ -13,7 +13,7 @@ We will use python streamlit or Rshiny to build this app based on team’s exper
 
     - [ ] Combine all files in to a single file with patient samples IDs and clinical variables
 
-    - [ ] Use python plotly to plot survival analysis
+    - [ ] Use python plotly to plot [survival analysis](https://plotly.com/python/v3/ipython-notebooks/survival-analysis-r-vs-python/)
 
 - [ ] Prepare PRAD expression data (mostly in R using Limma, DEseq)
 
