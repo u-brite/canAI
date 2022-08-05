@@ -49,22 +49,23 @@ c1 = st.sidebar.multiselect('Class A', unique_values)
 # df[df[column].isin(c1)]['class'] = 1
 c2 = st.sidebar.multiselect('Class B', unique_values)
 
-# age_slider = st.sidebar.slider('Age:', min_value=df['age_at_index'].min(), max_value=df['age_at_index'].max(), step=1, value=df['age_at_index'].min())
 min_age = int(df['age_at_index'].min())
 max_age = int(df['age_at_index'].max())
 age_slider = st.sidebar.slider('Age:', min_value=min_age, max_value=max_age, step=1, value=(min_age, max_age))
 
-agree = st.button('Click to see raw data for Class A')
-if agree:
-  st.dataframe(df[df[column].isin(c1)])
-
-agree = st.button('Click to see raw data for Class B')
-if agree:
-  st.dataframe(df[df[column].isin(c2)])
-
-st.dataframe(df)
+st.dataframe(df[df[column].isin(c1 + c2) & (df['age_at_index'] >= age_slider[0]) & (df['age_at_index'] <= age_slider[1])])
 
 st.download_button(label='Save dataframe', data=convert_df(df), file_name='df.csv')
+
+# agree = st.button('Click to see raw data for Class A')
+# if agree:
+#   st.dataframe(df[df[column].isin(c1)])
+
+# agree = st.button('Click to see raw data for Class B')
+# if agree:
+#   st.dataframe(df[df[column].isin(c2)])
+
+
 
 # fig = px.pie(df, values=[len(df_c1.index), len(df_c2.index)], names=[c1, c2])
 # st.plotly_chart(fig, use_container_width=True)
