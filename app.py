@@ -46,16 +46,18 @@ unique_values = df[column].unique()
 # df['class'] = 0
 
 c1 = st.sidebar.multiselect('Class A', unique_values)
-# df[df[column].isin(c1)]['class'] = 0
+# df[df[column].isin(c1)]['class'] = 1
 c2 = st.sidebar.multiselect('Class B', unique_values)
-# df[df[column].isin(c2)]['class'] = 1 
 
-st.markdown(c1)
+# age_slider = st.sidebar.slider('Age:', min_value=df['age_at_index'].min(), max_value=df['age_at_index'].max(), step=1, value=df['age_at_index'].min())
+min_age = int(df['age_at_index'].min())
+max_age = int(df['age_at_index'].max())
+age_slider = st.sidebar.slider('Age:', min_value=min_age, max_value=max_age, step=1, value=(min_age, max_age))
+
 agree = st.button('Click to see raw data for Class A')
 if agree:
   st.dataframe(df[df[column].isin(c1)])
 
-st.markdown(c2)
 agree = st.button('Click to see raw data for Class B')
 if agree:
   st.dataframe(df[df[column].isin(c2)])
