@@ -3,9 +3,9 @@ import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
 
-st.sidebar.markdown('U-BRITE Hackin\' Omics 2022!')
-st.title('canAI')
-st.markdown('Comparing feature extraction methods for biomarker discovery in a pan-cancer study')
+st.sidebar.title('canAI')
+st.sidebar.markdown('Comparing feature extraction methods for biomarker discovery in a pan-cancer study')
+st.sidebar.markdown('U-BRITE Hackin\' Omics 2022 Project')
 
 @st.cache
 def load_file(file_name):
@@ -13,15 +13,47 @@ def load_file(file_name):
 
 df = load_file('Prostate.csv')
 
+columns = ['age_at_index',
+    'days_to_birth',
+    'days_to_death',
+    'ethnicity',
+    'gender',
+    'race',
+    'vital_status',
+    'morphology',
+    'primary_diagnosis',
+    'ajcc_clinical_t',
+    'ajcc_clinical_m',
+    'ajcc_pathologic_t',
+    'ajcc_pathologic_n',
+    'primary_gleason_grade',
+    'secondary_gleason_grade',
+    'prior_malignancy',
+    'prior_treatment',
+    'site_of_resection_or_biopsy',
+    'treatment_type']
+
+df = df[columns]
+
 column = st.sidebar.selectbox('Select column to display', df.columns, index=0)
 
 unique_values = df[column].unique()
 
-# c1 = st.sidebar.selectbox('Class A', unique_values, index=0)
-# c2 = st.sidebar.selectbox('Class B', unique_values, index=0)
+c1 = st.sidebar.selectbox('Class A', unique_values, index=0)
+c2 = st.sidebar.selectbox('Class B', unique_values, index=0)
 
-c1 = st.sidebar.multiselect('Class A', unique_values)
-c2 = st.sidebar.multiselect('Class B', unique_values)
+st.write(c1)
+st.write(df[df[column] == c1])
+
+st.write(c2)
+st.write(df[df[column] == c2])
+
+# st.set_option('deprecation.showPyplotGlobalUse', False)
+# df[c1].hist()
+# st.pyplot()
+
+# c1 = st.sidebar.multiselect('Class A', unique_values)
+# c2 = st.sidebar.multiselect('Class B', unique_values)
 
 # col1, col2 = st.columns(2)
 
