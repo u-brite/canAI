@@ -1,7 +1,6 @@
 import pandas as pd
 import streamlit as st
 import numpy as np
-import plotly.express as px
 
 st.sidebar.title('canAI')
 st.sidebar.markdown('Comparing feature extraction methods for biomarker discovery in a pan-cancer study')
@@ -54,9 +53,18 @@ min_age = int(df['age_at_index'].min())
 max_age = int(df['age_at_index'].max())
 age_slider = st.sidebar.slider('Age:', min_value=min_age, max_value=max_age, step=1, value=(min_age, max_age))
 
-st.dataframe(df[df[column].isin(c1 + c2) & (df['age_at_index'] >= age_slider[0]) & (df['age_at_index'] <= age_slider[1])])
+df = df[df[column].isin(c1 + c2) & (df['age_at_index'] >= age_slider[0]) & (df['age_at_index'] <= age_slider[1])]
+
+st.dataframe(df)
 
 st.download_button(label='Save dataframe', data=convert_df(df), file_name='df.csv')
+
+st.write(df['vital_status'].value_counts())
+
+# plt.plot(df.groupby('').count(), df['vital_status'])
+# st.pyplot()
+
+# st.line_chart(df[['days_to_death', 'vital_status']])
 
 # agree = st.button('Click to see raw data for Class A')
 # if agree:
