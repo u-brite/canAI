@@ -1,6 +1,7 @@
 import pandas as pd
 import streamlit as st
 import numpy as np
+from lifelines import KaplanMeierFitter
 
 st.sidebar.title('canAI')
 st.sidebar.markdown('Comparing feature extraction methods for biomarker discovery in a pan-cancer study')
@@ -60,6 +61,20 @@ st.dataframe(df)
 st.download_button(label='Save dataframe', data=convert_df(df), file_name='df.csv')
 
 st.write(df['vital_status'].value_counts())
+
+df['days_to_death'] = np.where(df['vital_status'] == 'Alive' , 4000, df['days_to_death'])
+df['days_to_death'] = np.where(df['vital_status'] == 'Not Reported' , 4000, df['days_to_death'])
+
+df['vital_status'].replace({'Dead': 0, 'Alive': 1, 'Not Reported': 1}, inplace=True)
+
+T = df[df['vital_status'] == 0]['days_to_death']
+C = df[df['vital_status'] == 0]['vital_status']
+
+kmf = KaplanMeierFitter()
+
+kmf.fit(T, event_observed=C)
+
+kmf.plot_survival_function()
 
 
 # plt.plot(df.groupby('').count(), df['vital_status'])
