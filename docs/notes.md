@@ -7,13 +7,13 @@ We will use python streamlit or Rshiny to build this app based on team’s exper
 #### TCGA data prep:
 [] Prepare PRAD metadata
 
-    [] Identify which patients have both transcriptome and Methylation data and make a list of these patients
+- [] Identify which patients have both transcriptome and Methylation data and make a list of these patients
 
-    [] Check recount3 but good to download raw files from TCGA GDC tool
+- [] Check recount3 but good to download raw files from TCGA GDC tool
 
-    [] Combine all files in to a single file with patient samples IDs and clinical variables
+- [] Combine all files in to a single file with patient samples IDs and clinical variables
 
-    [] Use python plotly to plot survival analysis
+- [] Use python plotly to plot survival analysis
 
 [] Prepare PRAD expression data (mostly in R using Limma, DEseq)
     [] Download Prostate cancer expression data from recount3
