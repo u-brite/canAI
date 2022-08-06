@@ -34,37 +34,17 @@ def load_file(file_name):
 def convert_df(df):
     return df.to_csv().encode('utf-8')
 
-df = load_file('./data/external/TCGA-PRAD.GDC_phenotype.tsv')
-
-columns = ['age_at_index',
-    'days_to_birth',
-    'days_to_death',
-    'ethnicity',
-    'gender',
-    'race',
-    'vital_status',
-    'morphology',
-    'primary_diagnosis',
-    'ajcc_clinical_t',
-    'ajcc_clinical_m',
-    'ajcc_pathologic_t',
-    'ajcc_pathologic_n',
-    'primary_gleason_grade',
-    'secondary_gleason_grade',
-    'prior_malignancy',
-    'prior_treatment',
-    'site_of_resection_or_biopsy',
-    'treatment_type']
-
-# df = df[columns]
+df = load_file('TCGA-PRAD.GDC_phenotype.tsv')
 
 st.dataframe(df)
 
 st.download_button(label='Save dataframe', data=convert_df(df), file_name='df.csv')
 
-# Survival Analysis
+#Survival Analysis - days_to_death
+st.write('Survival Analysis - days_to_death')
+df = load_file('TCGA-PRAD.GDC_phenotype.tsv')
 df['days_to_death.demographic'] = np.where(df['vital_status.demographic'] == 'Alive' , 4000, df[ 'days_to_death.demographic'])
-df[ 'days_to_death.demographic'] = np.where(df['vital_status.demographic'] == 'Not Reported' , 4000, df[ 'days_to_death.demographic'])
+df['days_to_death.demographic'] = np.where(df['vital_status.demographic'] == 'Not Reported' , 4000, df[ 'days_to_death.demographic'])
 
 df['vital_status.demographic'].replace({'Dead': 1, 'Alive': 0, 'Not Reported': 0}, inplace=True)
 
@@ -76,6 +56,25 @@ kmf.fit(T, event_observed=C)
 st.set_option('deprecation.showPyplotGlobalUse', False)
 kmf.plot_survival_function()
 st.pyplot()
+
+#Survival Analysis - days_to_first_biochemical_recurrence
+st.write('Survival Analysis - days_to_first_biochemical_recurrence')
+df = load_file('TCGA-PRAD.GDC_phenotype.tsv')
+df = df[df['days_to_first_biochemical_recurrence'].notna()]
+df['days_to_first_biochemical_recurrence'] = np.where(df['vital_status.demographic'] == 'Alive' , 2500, df['days_to_first_biochemical_recurrence'])
+df['days_to_first_biochemical_recurrence'] = np.where(df['vital_status.demographic'] == 'Not Reported' , 2500, df['days_to_first_biochemical_recurrence'])
+
+df['vital_status.demographic'].replace({'Dead': 1, 'Alive': 0, 'Not Reported': 0}, inplace=True)
+
+T = df[df['vital_status.demographic'] == 1]['days_to_first_biochemical_recurrence']
+C = df[df['vital_status.demographic'] == 1]['vital_status.demographic']
+
+kmf = KaplanMeierFitter()
+kmf.fit(T, event_observed=C)
+st.set_option('deprecation.showPyplotGlobalUse', False)
+kmf.plot_survival_function()
+st.pyplot()
+
 
 col1, col2 = st.columns(2)
 
@@ -132,6 +131,27 @@ age_slider = st.sidebar.slider('Age:', min_value=min_age, max_value=max_age, ste
 df = df[df[column].isin(c1 + c2) & (df['age_at_index.demographic'] >= age_slider[0]) & (df['age_at_index.demographic'] <= age_slider[1])]
 #st.dataframe(df)
 
+# columns = ['age_at_index',
+#     'days_to_birth',
+#     'days_to_death',
+#     'ethnicity',
+#     'gender',
+#     'race',
+#     'vital_status',
+#     'morphology',
+#     'primary_diagnosis',
+#     'ajcc_clinical_t',
+#     'ajcc_clinical_m',
+#     'ajcc_pathologic_t',
+#     'ajcc_pathologic_n',
+#     'primary_gleason_grade',
+#     'secondary_gleason_grade',
+#     'prior_malignancy',
+#     'prior_treatment',
+#     'site_of_resection_or_biopsy',
+#     'treatment_type']
+
+# df = df[columns]
 
 
 #df['vital_status'].replace({'Dead': 0, 'Alive': 1, 'Not Reported': 1}, inplace=True)
