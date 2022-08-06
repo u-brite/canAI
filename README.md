@@ -29,6 +29,10 @@ data to look for biomarkers which correlate with outcome measures such as diseas
 PSA level. A web facing app to visualize the data will be developed to allow exploration of the data by clinicians and
 researchers without extensive data science training.
 
+## Workflow
+
+![Untitled Diagram drawio](https://user-images.githubusercontent.com/82537630/183267870-d89dc474-dd5d-4917-a70a-0697547ff524.png)
+
 ## Data
 
 The Cancer Genome Atlas (TCGA) is one repository of cancer data
