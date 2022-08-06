@@ -10,7 +10,7 @@ def RFEmethod(X,Y, feature_names,n_features):
   rankings=pd.DataFrame(rfe.ranking_)
   ranked=pd.concat([feature_names,rankings], axis=1)
   ranked.columns = ["Feature", "Rank"]
-  return ranked
+  return ranked.sort_values(by=['Rank'],ascending=True))
 
 #univariate (f_regression)
 def univariatemethod1(X,Y, feature_names,n_features):
@@ -19,7 +19,7 @@ def univariatemethod1(X,Y, feature_names,n_features):
   results_df=pd.DataFrame(results.scores_)
   scored=pd.concat([feature_names,results_df], axis=1)
   scored.columns = ["Feature", "Score"]
-  return scored.sort_values(by=['Score'])
+  return scored.sort_values(by=['Score'],ascending=False))
 
 #univariate (chi-squared)
 def univariatemethod2(X,Y, feature_names,n_features):
@@ -28,7 +28,7 @@ def univariatemethod2(X,Y, feature_names,n_features):
   results_df=pd.DataFrame(results.scores_)
   scored=pd.concat([feature_names,results_df], axis=1)
   scored.columns = ["Feature", "Score"]
-  return scored.sort_values(by=['Score'])
+  return scored.sort_values(by=['Score'],ascending=False))
 
 #Feature Importance
 #Top Score is most important
@@ -38,7 +38,7 @@ def FeatureImportancemethod(X,Y, feature_names):
   results_df=pd.DataFrame(model.feature_importances_)
   scored=pd.concat([feature_names,results_df], axis=1)
   scored.columns = ["Feature", "Score"]
-  return scored.sort_values(by=['Score'])
+  return scored.sort_values(by=['Score'],ascending=False))
 
 #evaluation
 def randomforest(X,Y, n_estimators=1000):

@@ -69,11 +69,17 @@ features = st.sidebar.radio(
 
 if features == 'RFEmethod':
     scores = canai_utils.RFEmethod(x,y, feature_names,n_features)
-elif impute == 'univariate(f_regression)':
+elif features == 'univariate(f_regression)':
     scores = canai_utils.univariatemethod1(x,y, feature_names,n_features)
-elif impute == 'univariate(chi-square)':
+elif features == 'univariate(chi-square)':
     scores = canai_utils.univariatemethod2(x,y, feature_names,n_features)
-elif impute == 'ExtraTrees':
+elif features == 'ExtraTrees':
     scores = canai_utils.FeatureImportancemethod(x,y, feature_names)
 
-print(scores.head())
+st.dataframe(scores.head(20))
+
+@st.cache
+def convert_df(df):
+    return df.to_csv().encode('utf-8')
+
+st.download_button(label='Save all results', data=convert_df(scores), file_name=f'{scores}_results.csv')
