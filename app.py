@@ -4,7 +4,7 @@ import numpy as np
 import warnings
 warnings.simplefilter("ignore")
 import plotly.express as px
-#from lifelines import KaplanMeierFitter
+from lifelines import KaplanMeierFitter
 
 # Config the whole app
 st.set_page_config(
@@ -56,11 +56,26 @@ columns = ['age_at_index',
     'site_of_resection_or_biopsy',
     'treatment_type']
 
-#df = df[columns]
+# df = df[columns]
 
 st.dataframe(df)
 
 st.download_button(label='Save dataframe', data=convert_df(df), file_name='df.csv')
+
+# Survival Analysis
+df['days_to_death.demographic'] = np.where(df['vital_status.demographic'] == 'Alive' , 4000, df[ 'days_to_death.demographic'])
+df[ 'days_to_death.demographic'] = np.where(df['vital_status.demographic'] == 'Not Reported' , 4000, df[ 'days_to_death.demographic'])
+
+df['vital_status.demographic'].replace({'Dead': 1, 'Alive': 0, 'Not Reported': 0}, inplace=True)
+
+T = df[df['vital_status.demographic'] == 1]['days_to_death.demographic']
+C = df[df['vital_status.demographic'] == 1]['vital_status.demographic']
+
+kmf = KaplanMeierFitter()
+kmf.fit(T, event_observed=C)
+st.set_option('deprecation.showPyplotGlobalUse', False)
+kmf.plot_survival_function()
+st.pyplot()
 
 col1, col2 = st.columns(2)
 
@@ -116,10 +131,9 @@ age_slider = st.sidebar.slider('Age:', min_value=min_age, max_value=max_age, ste
 
 df = df[df[column].isin(c1 + c2) & (df['age_at_index.demographic'] >= age_slider[0]) & (df['age_at_index.demographic'] <= age_slider[1])]
 #st.dataframe(df)
-#
-#df['days_to_death'] = np.where(df['vital_status'] == 'Alive' , 4000, df['days_to_death'])
-#df['days_to_death'] = np.where(df['vital_status'] == 'Not Reported' , 4000, df['days_to_death'])
-#
+
+
+
 #df['vital_status'].replace({'Dead': 0, 'Alive': 1, 'Not Reported': 1}, inplace=True)
 #
 #T = df[df['vital_status'] == 0]['days_to_death']
