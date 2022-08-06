@@ -28,13 +28,13 @@ st.markdown('U-BRITE Hackin\' Omics 2022 Project')
 
 @st.cache(allow_output_mutation=True)
 def load_file(file_name):
-    return pd.read_csv(file_name)
+    return pd.read_csv(file_name,sep='\t')
 
 @st.cache
 def convert_df(df):
     return df.to_csv().encode('utf-8')
 
-df = load_file('onesampleid.csv')
+df = load_file('TCGA-PRAD.GDC_phenotype.tsv')
 
 columns = ['age_at_index',
     'days_to_birth',
@@ -64,38 +64,38 @@ st.download_button(label='Save dataframe', data=convert_df(df), file_name='df.cs
 
 col1, col2 = st.columns(2)
 
-sample_type = df['Sample Type'].value_counts()
+sample_type = df['sample_type.samples'].value_counts()
 col1.plotly_chart(px.pie(sample_type,
-             values='Sample Type',
+             values='sample_type.samples',
              names=sample_type.index), use_container_width=True)
 
-vital_status = df['vital_status'].value_counts()
+vital_status = df['vital_status.demographic'].value_counts()
 col2.plotly_chart(px.pie(vital_status,
-             values='vital_status',
+             values='vital_status.demographic',
              names=vital_status.index), use_container_width=True)
 
-ethnicity = df['ethnicity'].value_counts()
+ethnicity = df['ethnicity.demographic'].value_counts()
 col1.plotly_chart(px.pie(ethnicity,
-             values='ethnicity',
+             values='ethnicity.demographic',
              names=ethnicity.index), use_container_width=True)
 
-gender = df['gender'].value_counts()
+gender = df['gender.demographic'].value_counts()
 col2.plotly_chart(px.pie(gender,
-             values='gender',
+             values='gender.demographic',
              names=gender.index), use_container_width=True)
 
-race = df['race'].value_counts()
+race = df['race.demographic'].value_counts()
 col1.plotly_chart(px.pie(race,
-             values='race',
+             values='race.demographic',
              names=race.index), use_container_width=True)
 
-primary_diagnosis = df['primary_diagnosis'].value_counts()
+primary_diagnosis = df['primary_diagnosis.diagnoses'].value_counts()
 col2.plotly_chart(px.pie(primary_diagnosis,
-             values='primary_diagnosis',
+             values='primary_diagnosis.diagnoses',
              names=primary_diagnosis.index), use_container_width=True)
 
 
-st.plotly_chart(px.histogram(df, x="age_at_index", color="race"), use_container_width=True)
+st.plotly_chart(px.histogram(df, x="age_at_index.demographic", color="race.demographic"), use_container_width=True)
 
 column = st.sidebar.selectbox('Select column filters:', df.columns, index=0)
 
@@ -110,11 +110,11 @@ c2 = st.sidebar.multiselect('Class B', unique_values)
 if c2:
     df['class'] = np.where(df[column].isin(c2), 2, df['class'])
 
-min_age = int(df['age_at_index'].min())
-max_age = int(df['age_at_index'].max())
+min_age = int(df['age_at_index.demographic'].min())
+max_age = int(df['age_at_index.demographic'].max())
 age_slider = st.sidebar.slider('Age:', min_value=min_age, max_value=max_age, step=1, value=(min_age, max_age))
 
-df = df[df[column].isin(c1 + c2) & (df['age_at_index'] >= age_slider[0]) & (df['age_at_index'] <= age_slider[1])]
+df = df[df[column].isin(c1 + c2) & (df['age_at_index.demographic'] >= age_slider[0]) & (df['age_at_index.demographic'] <= age_slider[1])]
 #st.dataframe(df)
 #
 #df['days_to_death'] = np.where(df['vital_status'] == 'Alive' , 4000, df['days_to_death'])
