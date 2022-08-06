@@ -1,13 +1,32 @@
 import pandas as pd
 import streamlit as st
 import numpy as np
-from lifelines import KaplanMeierFitter
+import warnings
+warnings.simplefilter("ignore")
+import plotly.express as px
+#from lifelines import KaplanMeierFitter
 
-st.sidebar.title('canAI')
-st.sidebar.markdown('Comparing feature extraction methods for biomarker discovery in a pan-cancer study')
-st.sidebar.markdown('U-BRITE Hackin\' Omics 2022 Project')
+# Config the whole app
+st.set_page_config(
+    page_title="canAI",
+    page_icon="🧊",
+    layout="wide",  # initial_sidebar_state="expanded",
+)
 
-@st.cache
+st.write(
+    "<style>div.row-widget.stRadio > div{flex-direction:row;justify-content: center;} </style>",
+    unsafe_allow_html=True,
+)
+#st.write(
+#    "<style>div.st-bf{flex-direction:column;} div.st-ag{font-weight:bold;padding-right:50px;}</style>",
+#    unsafe_allow_html=True,
+#)
+
+st.title('canAI')
+st.markdown('Comparing feature extraction methods for biomarker discovery in a pan-cancer study')
+st.markdown('U-BRITE Hackin\' Omics 2022 Project')
+
+@st.cache(allow_output_mutation=True)
 def load_file(file_name):
     return pd.read_csv(file_name)
 
@@ -15,7 +34,7 @@ def load_file(file_name):
 def convert_df(df):
     return df.to_csv().encode('utf-8')
 
-df = load_file('Prostate.csv')
+df = load_file('onesampleid.csv')
 
 columns = ['age_at_index',
     'days_to_birth',
@@ -37,44 +56,80 @@ columns = ['age_at_index',
     'site_of_resection_or_biopsy',
     'treatment_type']
 
-df = df[columns]
+#df = df[columns]
 
-column = st.sidebar.selectbox('Select column to display', df.columns, index=0)
+st.dataframe(df)
+
+st.download_button(label='Save dataframe', data=convert_df(df), file_name='df.csv')
+
+col1, col2 = st.columns(2)
+
+sample_type = df['Sample Type'].value_counts()
+col1.plotly_chart(px.pie(sample_type,
+             values='Sample Type',
+             names=sample_type.index), use_container_width=True)
+
+vital_status = df['vital_status'].value_counts()
+col2.plotly_chart(px.pie(vital_status,
+             values='vital_status',
+             names=vital_status.index), use_container_width=True)
+
+ethnicity = df['ethnicity'].value_counts()
+col1.plotly_chart(px.pie(ethnicity,
+             values='ethnicity',
+             names=ethnicity.index), use_container_width=True)
+
+gender = df['gender'].value_counts()
+col2.plotly_chart(px.pie(gender,
+             values='gender',
+             names=gender.index), use_container_width=True)
+
+race = df['race'].value_counts()
+col1.plotly_chart(px.pie(race,
+             values='race',
+             names=race.index), use_container_width=True)
+
+primary_diagnosis = df['primary_diagnosis'].value_counts()
+col2.plotly_chart(px.pie(primary_diagnosis,
+             values='primary_diagnosis',
+             names=primary_diagnosis.index), use_container_width=True)
+
+
+st.plotly_chart(px.histogram(df, x="age_at_index", color="race"), use_container_width=True)
+
+column = st.sidebar.selectbox('Select column filters:', df.columns, index=0)
 
 unique_values = df[column].unique()
 
 df['class'] = 0
 
 c1 = st.sidebar.multiselect('Class A', unique_values)
-df['class'] = np.where(df[column].isin(c1), 1, df['class'])
+if c1:
+    df['class'] = np.where(df[column].isin(c1), 1, df['class'])
 c2 = st.sidebar.multiselect('Class B', unique_values)
-df['class'] = np.where(df[column].isin(c2), 2, df['class'])
+if c2:
+    df['class'] = np.where(df[column].isin(c2), 2, df['class'])
 
 min_age = int(df['age_at_index'].min())
 max_age = int(df['age_at_index'].max())
 age_slider = st.sidebar.slider('Age:', min_value=min_age, max_value=max_age, step=1, value=(min_age, max_age))
 
 df = df[df[column].isin(c1 + c2) & (df['age_at_index'] >= age_slider[0]) & (df['age_at_index'] <= age_slider[1])]
+#st.dataframe(df)
+#
+#df['days_to_death'] = np.where(df['vital_status'] == 'Alive' , 4000, df['days_to_death'])
+#df['days_to_death'] = np.where(df['vital_status'] == 'Not Reported' , 4000, df['days_to_death'])
+#
+#df['vital_status'].replace({'Dead': 0, 'Alive': 1, 'Not Reported': 1}, inplace=True)
+#
+#T = df[df['vital_status'] == 0]['days_to_death']
+#C = df[df['vital_status'] == 0]['vital_status']
 
-st.dataframe(df)
-
-st.download_button(label='Save dataframe', data=convert_df(df), file_name='df.csv')
-
-st.write(df['vital_status'].value_counts())
-
-df['days_to_death'] = np.where(df['vital_status'] == 'Alive' , 4000, df['days_to_death'])
-df['days_to_death'] = np.where(df['vital_status'] == 'Not Reported' , 4000, df['days_to_death'])
-
-df['vital_status'].replace({'Dead': 0, 'Alive': 1, 'Not Reported': 1}, inplace=True)
-
-T = df[df['vital_status'] == 0]['days_to_death']
-C = df[df['vital_status'] == 0]['vital_status']
-
-kmf = KaplanMeierFitter()
-
-kmf.fit(T, event_observed=C)
-
-kmf.plot_survival_function()
+#kmf = KaplanMeierFitter()
+#
+#kmf.fit(T, event_observed=C)
+#
+#kmf.plot_survival_function()
 
 
 # plt.plot(df.groupby('').count(), df['vital_status'])
