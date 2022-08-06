@@ -34,7 +34,7 @@ def load_file(file_name):
 def convert_df(df):
     return df.to_csv().encode('utf-8')
 
-df = load_file('TCGA-PRAD.GDC_phenotype.tsv')
+df = load_file('./data/external/TCGA-PRAD.GDC_phenotype.tsv')
 
 columns = ['age_at_index',
     'days_to_birth',
