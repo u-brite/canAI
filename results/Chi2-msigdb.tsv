@@ -1,0 +1,98 @@
+
+Overlap Results
+
+Collection(s):	C1, C2, C3, C4, C5, C6, C7, C8, H
+# overlaps shown:	10
+# genesets in collections:	32880
+# genes in comparison (n):	73
+# genes in universe (N):	40786
+
+Gene Set Name	# Genes in Gene Set (K)	Description	# Genes in Overlap (k)	k/K	p-value	FDR q-value
+MODULE_117	722	Signaling.	14	0.0194	3.7E-11	1.22E-6
+TATAAA_TATA_01	1318	Genes having at least one occurrence of the highly conserved motif M51 TATAAA in the regions spanning 4 kb centered on their transcription starting sites [-2kb, +2kb].  This matches the TAF [GeneSymbol=TAF], TATA [GeneSymbol=TATA] transcription factor binding site V$TATA_01 (v7.4 TRANSFAC).	17	0.0129	1.32E-10	2.17E-6
+GOCC_MUSCLE_MYOSIN_COMPLEX	15	A filament of myosin found in a muscle cell of any type. [GOC:mah]	4	0.2667	1.27E-8	1.35E-4
+GOBP_ACTIN_MYOSIN_FILAMENT_SLIDING	16	The sliding movement of actin thin filaments and myosin thick filaments past each other. [GOC:pf]	4	0.2500	1.69E-8	1.35E-4
+CTAWWWATA_RSRFC4_Q2	367	Genes having at least one occurrence of the highly conserved motif M28 CTAWWWATA in the regions spanning 4 kb centered on their transcription starting sites [-2kb, +2kb].  This matches the MEF2A [GeneSymbol=MEF2A] transcription factor binding site V$RSRFC4_Q2 (v7.4 TRANSFAC).	9	0.0245	2.05E-8	1.35E-4
+GOCC_MYOSIN_II_COMPLEX	22	A myosin complex containing two class II myosin heavy chains, two myosin essential light chains and two myosin regulatory light chains. Also known as classical myosin or conventional myosin, the myosin II class includes the major muscle myosin of vertebrate and invertebrate muscle, and is characterized by alpha-helical coiled coil tails that self assemble to form a variety of filament structures. [Wikipedia:Myosin]	4	0.1818	6.74E-8	3.69E-4
+DESCARTES_MAIN_FETAL_SQUAMOUS_EPITHELIAL_CELLS	130	descartes DE_gene_77_main_cell_type.csv, fold.change>=1.5, qval<0.05, pval<0.05	6	0.0462	1.33E-7	5.82E-4
+DESCARTES_FETAL_STOMACH_SQUAMOUS_EPITHELIAL_CELLS	67	descartes DE_gene_by_organ.csv, fold.change>5, qval<0.05, pval<0.05	5	0.0746	1.42E-7	5.82E-4
+KRAS.LUNG_UP.V1_DN	142	Genes down-regulated in epithelial lung cancer cell lines over-expressing an oncogenic form of KRAS [Gene ID=3845] gene.	6	0.0423	2.25E-7	7.93E-4
+LIU_PROSTATE_CANCER_DN	491	Genes down-regulated in prostate cancer samples.	9	0.0183	2.42E-7	7.93E-4
+
+
+Gene/Gene Set Overlap Matrix
+
+Entrez Gene Id	Gene Symbol	Gene Description	MODULE_117	TATAAA_TATA_01	GOCC_MUSCLE_MYOSIN_COMPLEX	GOBP_ACTIN_MYOSIN_FILAMENT_SLIDING	CTAWWWATA_RSRFC4_Q2	GOCC_MYOSIN_II_COMPLEX	DESCARTES_MAIN_FETAL_SQUAMOUS_EPITHELIAL_CELLS	DESCARTES_FETAL_STOMACH_SQUAMOUS_EPITHELIAL_CELLS	KRAS.LUNG_UP.V1_DN	LIU_PROSTATE_CANCER_DN
+4632	MYL1	myosin light chain 1 [Source:HGNC Symbol;Acc:HGNC:7582]	MODULE_117	TATAAA_TATA_01	GOCC_MUSCLE_MYOSIN_COMPLEX	GOBP_ACTIN_MYOSIN_FILAMENT_SLIDING	CTAWWWATA_RSRFC4_Q2	GOCC_MYOSIN_II_COMPLEX				
+4625	MYH7	myosin heavy chain 7 [Source:HGNC Symbol;Acc:HGNC:7577]	MODULE_117		GOCC_MUSCLE_MYOSIN_COMPLEX	GOBP_ACTIN_MYOSIN_FILAMENT_SLIDING		GOCC_MYOSIN_II_COMPLEX				
+8581	LY6D	lymphocyte antigen 6 family member D [Source:HGNC Symbol;Acc:HGNC:13348]	MODULE_117						DESCARTES_MAIN_FETAL_SQUAMOUS_EPITHELIAL_CELLS	DESCARTES_FETAL_STOMACH_SQUAMOUS_EPITHELIAL_CELLS	KRAS.LUNG_UP.V1_DN	
+9635	CLCA2	chloride channel accessory 2 [Source:HGNC Symbol;Acc:HGNC:2016]	MODULE_117						DESCARTES_MAIN_FETAL_SQUAMOUS_EPITHELIAL_CELLS	DESCARTES_FETAL_STOMACH_SQUAMOUS_EPITHELIAL_CELLS		
+7356	SCGB1A1	secretoglobin family 1A member 1 [Source:HGNC Symbol;Acc:HGNC:12523]	MODULE_117								KRAS.LUNG_UP.V1_DN	LIU_PROSTATE_CANCER_DN
+5104	SERPINA5	serpin family A member 5 [Source:HGNC Symbol;Acc:HGNC:8723]	MODULE_117									LIU_PROSTATE_CANCER_DN
+6406	SEMG1	semenogelin 1 [Source:HGNC Symbol;Acc:HGNC:10742]	MODULE_117									LIU_PROSTATE_CANCER_DN
+7363	UGT2B4	UDP glucuronosyltransferase family 2 member B4 [Source:HGNC Symbol;Acc:HGNC:12553]	MODULE_117									
+3787	KCNS1	potassium voltage-gated channel modifier subfamily S member 1 [Source:HGNC Symbol;Acc:HGNC:6300]	MODULE_117									
+359	AQP2	aquaporin 2 [Source:HGNC Symbol;Acc:HGNC:634]	MODULE_117									
+5288	PIK3C2G	phosphatidylinositol-4-phosphate 3-kinase catalytic subunit type 2 gamma [Source:HGNC Symbol;Acc:HGNC:8973]	MODULE_117									
+2018	EMX2	empty spiracles homeobox 2 [Source:HGNC Symbol;Acc:HGNC:3341]	MODULE_117									
+6121	RPE65	retinoid isomerohydrolase RPE65 [Source:HGNC Symbol;Acc:HGNC:10294]	MODULE_117									
+10879	SMR3B	submaxillary gland androgen regulated protein 3B [Source:HGNC Symbol;Acc:HGNC:17326]	MODULE_117									
+4620	MYH2	myosin heavy chain 2 [Source:HGNC Symbol;Acc:HGNC:7572]		TATAAA_TATA_01	GOCC_MUSCLE_MYOSIN_COMPLEX	GOBP_ACTIN_MYOSIN_FILAMENT_SLIDING	CTAWWWATA_RSRFC4_Q2	GOCC_MYOSIN_II_COMPLEX				
+4624	MYH6	myosin heavy chain 6 [Source:HGNC Symbol;Acc:HGNC:7576]		TATAAA_TATA_01	GOCC_MUSCLE_MYOSIN_COMPLEX	GOBP_ACTIN_MYOSIN_FILAMENT_SLIDING		GOCC_MYOSIN_II_COMPLEX				
+150572	SMYD1	SET and MYND domain containing 1 [Source:HGNC Symbol;Acc:HGNC:20986]		TATAAA_TATA_01			CTAWWWATA_RSRFC4_Q2					
+8988	HSPB3	heat shock protein family B (small) member 3 [Source:HGNC Symbol;Acc:HGNC:5248]		TATAAA_TATA_01			CTAWWWATA_RSRFC4_Q2					
+167410	LIX1	limb and CNS expressed 1 [Source:HGNC Symbol;Acc:HGNC:18581]		TATAAA_TATA_01			CTAWWWATA_RSRFC4_Q2					
+131377	KLHL40	kelch like family member 40 [Source:HGNC Symbol;Acc:HGNC:30372]		TATAAA_TATA_01			CTAWWWATA_RSRFC4_Q2					
+1300	COL10A1	collagen type X alpha 1 chain [Source:HGNC Symbol;Acc:HGNC:2185]		TATAAA_TATA_01			CTAWWWATA_RSRFC4_Q2					
+160065	PATE1	prostate and testis expressed 1 [Source:HGNC Symbol;Acc:HGNC:24664]		TATAAA_TATA_01			CTAWWWATA_RSRFC4_Q2					
+22802	CLCA4	chloride channel accessory 4 [Source:HGNC Symbol;Acc:HGNC:2018]		TATAAA_TATA_01					DESCARTES_MAIN_FETAL_SQUAMOUS_EPITHELIAL_CELLS		KRAS.LUNG_UP.V1_DN	
+10930	APOBEC2	apolipoprotein B mRNA editing enzyme catalytic subunit 2 [Source:HGNC Symbol;Acc:HGNC:605]		TATAAA_TATA_01								
+4880	NPPC	natriuretic peptide C [Source:HGNC Symbol;Acc:HGNC:7941]		TATAAA_TATA_01								
+1745	DLX1	distal-less homeobox 1 [Source:HGNC Symbol;Acc:HGNC:2914]		TATAAA_TATA_01								
+405753	DUOXA2	dual oxidase maturation factor 2 [Source:HGNC Symbol;Acc:HGNC:32698]		TATAAA_TATA_01								
+1129	CHRM2	cholinergic receptor muscarinic 2 [Source:HGNC Symbol;Acc:HGNC:1951]		TATAAA_TATA_01								
+347731	LRRTM3	leucine rich repeat transmembrane neuronal 3 [Source:HGNC Symbol;Acc:HGNC:19410]		TATAAA_TATA_01								
+85416	ZIC5	Zic family member 5 [Source:HGNC Symbol;Acc:HGNC:20322]		TATAAA_TATA_01								
+51725	FBXO40	F-box protein 40 [Source:HGNC Symbol;Acc:HGNC:29816]					CTAWWWATA_RSRFC4_Q2					
+339967	TMPRSS11A	transmembrane serine protease 11A [Source:HGNC Symbol;Acc:HGNC:27954]							DESCARTES_MAIN_FETAL_SQUAMOUS_EPITHELIAL_CELLS	DESCARTES_FETAL_STOMACH_SQUAMOUS_EPITHELIAL_CELLS		
+128876	FAM83C	family with sequence similarity 83 member C [Source:HGNC Symbol;Acc:HGNC:16121]							DESCARTES_MAIN_FETAL_SQUAMOUS_EPITHELIAL_CELLS	DESCARTES_FETAL_STOMACH_SQUAMOUS_EPITHELIAL_CELLS		
+51458	RHCG	Rh family C glycoprotein [Source:HGNC Symbol;Acc:HGNC:18140]							DESCARTES_MAIN_FETAL_SQUAMOUS_EPITHELIAL_CELLS		KRAS.LUNG_UP.V1_DN	
+3860	KRT13	keratin 13 [Source:HGNC Symbol;Acc:HGNC:6415]								DESCARTES_FETAL_STOMACH_SQUAMOUS_EPITHELIAL_CELLS	KRAS.LUNG_UP.V1_DN	LIU_PROSTATE_CANCER_DN
+29986	SLC39A2	solute carrier family 39 member 2 [Source:HGNC Symbol;Acc:HGNC:17127]									KRAS.LUNG_UP.V1_DN	
+1381	CRABP1	cellular retinoic acid binding protein 1 [Source:HGNC Symbol;Acc:HGNC:2338]										LIU_PROSTATE_CANCER_DN
+2944	GSTM1	glutathione S-transferase mu 1 [Source:HGNC Symbol;Acc:HGNC:4632]										LIU_PROSTATE_CANCER_DN
+26	AOC1	amine oxidase copper containing 1 [Source:HGNC Symbol;Acc:HGNC:80]										LIU_PROSTATE_CANCER_DN
+6407	SEMG2	semenogelin 2 [Source:HGNC Symbol;Acc:HGNC:10743]										LIU_PROSTATE_CANCER_DN
+92304	SCGB3A1	secretoglobin family 3A member 1 [Source:HGNC Symbol;Acc:HGNC:18384]										LIU_PROSTATE_CANCER_DN
+5047	PAEP	progestagen associated endometrial protein [Source:HGNC Symbol;Acc:HGNC:8573]										
+7546	ZIC2	Zic family member 2 [Source:HGNC Symbol;Acc:HGNC:12873]										
+8788	DLK1	delta like non-canonical Notch ligand 1 [Source:HGNC Symbol;Acc:HGNC:2907]										
+3547	IGSF1	immunoglobulin superfamily member 1 [Source:HGNC Symbol;Acc:HGNC:5948]										
+51207	DUSP13	dual specificity phosphatase 13 [Source:HGNC Symbol;Acc:HGNC:19681]										
+6691	SPINK2	serine peptidase inhibitor Kazal type 2 [Source:HGNC Symbol;Acc:HGNC:11245]										
+2515	ADAM2	ADAM metallopeptidase domain 2 [Source:HGNC Symbol;Acc:HGNC:198]										
+56165	TDRD1	tudor domain containing 1 [Source:HGNC Symbol;Acc:HGNC:11712]										
+9058	SLC13A2	solute carrier family 13 member 2 [Source:HGNC Symbol;Acc:HGNC:10917]										
+3773	KCNJ16	potassium inwardly rectifying channel subfamily J member 16 [Source:HGNC Symbol;Acc:HGNC:6262]										
+50617	ATP6V0A4	ATPase H+ transporting V0 subunit a4 [Source:HGNC Symbol;Acc:HGNC:866]										
+51151	SLC45A2	solute carrier family 45 member 2 [Source:HGNC Symbol;Acc:HGNC:16472]										
+1746	DLX2	distal-less homeobox 2 [Source:HGNC Symbol;Acc:HGNC:2915]										
+92196	DAPL1	death associated protein like 1 [Source:HGNC Symbol;Acc:HGNC:21490]										
+155006	TMEM213	transmembrane protein 213 [Source:HGNC Symbol;Acc:HGNC:27220]										
+9362	CPNE6	copine 6 [Source:HGNC Symbol;Acc:HGNC:2319]										
+2299	FOXI1	forkhead box I1 [Source:HGNC Symbol;Acc:HGNC:3815]										
+63928	CHP2	calcineurin like EF-hand protein 2 [Source:HGNC Symbol;Acc:HGNC:24927]										
+159296	NKX2-3	NK2 homeobox 3 [Source:HGNC Symbol;Acc:HGNC:7836]										
+256764	WDR72	WD repeat domain 72 [Source:HGNC Symbol;Acc:HGNC:26790]										
+339535	LINC01139	long intergenic non-protein coding RNA 1139 [Source:HGNC Symbol;Acc:HGNC:27924]										
+442425	FOXB2	forkhead box B2 [Source:HGNC Symbol;Acc:HGNC:23315]										
+84985	FAM83A	family with sequence similarity 83 member A [Source:HGNC Symbol;Acc:HGNC:28210]										
+344191	EVX2	even-skipped homeobox 2 [Source:HGNC Symbol;Acc:HGNC:3507]										
+5455	POU3F3	POU class 3 homeobox 3 [Source:HGNC Symbol;Acc:HGNC:9216]										
+149708	WFDC5	WAP four-disulfide core domain 5 [Source:HGNC Symbol;Acc:HGNC:20477]										
+26223	FBXL21P	"F-box and leucine rich repeat protein 21, pseudogene [Source:HGNC Symbol;Acc:HGNC:13600]"										
+169693	TMEM252	transmembrane protein 252 [Source:HGNC Symbol;Acc:HGNC:28537]										
+51702	PADI3	peptidyl arginine deiminase 3 [Source:HGNC Symbol;Acc:HGNC:18337]										
+143379	C10orf82	chromosome 10 open reading frame 82 [Source:HGNC Symbol;Acc:HGNC:28500]										
+100131897	INSYN2B	inhibitory synaptic factor family member 2B [Source:HGNC Symbol;Acc:HGNC:37271]										
+653579	CD177P1	CD177 molecule pseudogene 1 [Source:HGNC Symbol;Acc:HGNC:34508]										
