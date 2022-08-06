@@ -1,3 +1,5 @@
-pandas
-numpy
 streamlit
+scikit-learn
+pandas
+plotly
+openpyxl
