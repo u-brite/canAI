@@ -9,12 +9,11 @@
     - [Data](#data)
     - [Usage](#usage)
         - [Installation](#installation)
-        - [Requirements](#requirements) _Can be named Dependencies as well_
-        - [Activate conda environment](#activate-conda-environment) _Optional_
-        - [Steps to run ](#steps-to-run) _Optional depending on project_
-            - [Pre-processing](#pre-processing)
+        - [Requirements](#requirements)
+        - [Activate pip environment](#activate-conda-environment)
+        - [Steps to run ](#steps-to-run)
             - [Run Streamlit App](#run-streamlit-app)
-    - [Results](#results) _Optional depending on project_
+    - [Results](#results)
     - [Team Members](#team-members)
     - [References](#references)
 
@@ -67,7 +66,7 @@ potentially Windows).
 - Scikit-learn
 - Plotly
 
-### Activate conda environment
+### Activate pip environment
 
 Change in to root directory and run the commands below:
 
