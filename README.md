@@ -78,7 +78,7 @@ Change in to root directory and run the commands below:
 
 ```sh
 # create pip environment. Needed only the first time.
-python3 -m venv canAI
+python3 -m venv canAI_venv
 
 # activate pip environment
 source canAI_venv/bin/activate
