@@ -1,6 +1,0 @@
-Feature extraction methods used to select n best features:
--Recursive Feature Selection (RFE) with a decision tree classifier aims to build a decision tree using all features and eliminate the least relevant features at each step until n features remain. 
--Univariate Feature Selection performs univariate statistical tests that measure the dependency between a feature and the target. The features with the highest scores show a greater dependence and are considered most important in the model. Chi-squared and F-regression are 2 types of univariate statistical tests.
--Extra Trees Classification, an ensemble machine learning algorithm, builds multiple decision trees using randomly selected features and keeps the ones that aim to optimize the model.
-
-Data was split using train_test_split so that 20% could be used for testing. Label_binarize package was used to binarize the y-variable.
