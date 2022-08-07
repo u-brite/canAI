@@ -27,7 +27,7 @@ dask-worker-space/
 *.out
 *.db
 *.py*.sh
-*.tsv
+#*.tsv
 *.csv
 *.gz*
 
@@ -83,7 +83,7 @@ target/
 .ipynb_checkpoints/
 
 # exclude data from source control by default
-/data/
+#/data/
 .DS_Store
 
 #snakemake

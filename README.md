@@ -6,6 +6,7 @@
 
 - [canAI](#canai)
     - [Background](#background)
+    - [Workflow](#workflow)
     - [Data](#data)
     - [Usage](#usage)
         - [Installation](#installation)
@@ -14,6 +15,7 @@
         - [Steps to run ](#steps-to-run)
             - [Run Streamlit App](#run-streamlit-app)
     - [Results](#results)
+        - [Streamlit App](#streamlit-app)
     - [Team Members](#team-members)
     - [References](#references)
 
