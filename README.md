@@ -90,12 +90,31 @@ pip install -r requirements.txt
 #### Run Streamlit App
 
 ```sh
-streamlit run src/app.py
+streamlit run src/streamlit_app.py
 ```
 
 ## Results
 
-Survival analysis plots show the occurence of death over time. The survival function is the probability that the death has not occured yet. For the analysis we used the KaplanMeierFitter class from the lifelines python module[2]. It has been fitted on the days_to_death and days_to_first_biochemical_recurrence columns from the dataset.
+Survival analysis plots show the occurence of death over time. The survival function is the probability that the death
+has not occured yet. For the analysis we used the KaplanMeierFitter class from the lifelines python module[2]. It has
+been fitted on the days_to_death and days_to_first_biochemical_recurrence columns from the dataset.
+
+
+We hypothesis that Machine Learning feature selection methods would be able to find novel biomarkers that distinguish
+prostate cancer patients than traditional Differential Expression analysis. We chose 4 methods from scikit-learn
+package:
+
+* ExtraTrees - Results [here](results/feature_importance_readme.md)
+
+* RFEmethod - Results [here](results/rfe_readme.md)
+
+* Univariate (f_regression) - Results [here](results/univariateFregress.md)
+
+* Univariate (chi-square) - Resulting network [here](results/STRING-Chi2-PC-pathway-genes.svg)
+
+#### Streamlit App
+![Streamlit screenshot](results/result_page.png)
+
 
 
 ## Team Members
@@ -104,7 +123,6 @@ Survival analysis plots show the occurence of death over time. The survival func
 |Name | Email | Role |
 ----|--|--|
 |Tarun Mamidi               | tmamidi@uab.edu                   | Team Leader |
-|Kuanjui Su                 |	ksu2@tulane.edu                 | Team Member |
 |Jędrzej Kubica             |	jj.kubica@student.uw.edu.pl     | Team Member |
 |Mohit Bansal               |	mbansal@uabmc.edu               | Team Member |
 |Sarmad Mehmood             |	smehmood@uab.edu                | Team Member |
@@ -117,3 +135,7 @@ Survival analysis plots show the occurence of death over time. The survival func
 1. https://plotly.com/python/v3/ipython-notebooks/survival-analysis-r-vs-python/
 
 2. https://lifelines.readthedocs.io/en/latest/
+
+3. https://www.frontiersin.org/articles/10.3389/fgene.2021.620453/full
+
+4. https://www.biorxiv.org/content/10.1101/2021.09.29.462364v1.full.pdf
