@@ -99,6 +99,8 @@ Survival analysis plots show the occurence of death over time. The survival func
 has not occured yet. For the analysis we used the KaplanMeierFitter class from the lifelines python module[2]. It has
 been fitted on the days_to_death and days_to_first_biochemical_recurrence columns from the dataset.
 
+![Survival plots](results/survival.png)
+
 
 We hypothesis that Machine Learning feature selection methods would be able to find novel biomarkers that distinguish
 prostate cancer patients than traditional Differential Expression analysis. We chose 4 methods from scikit-learn
